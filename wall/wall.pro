@@ -36,6 +36,6 @@ else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/
 RESOURCES += \
     tray.qrc
 win32 {
-    RC_FILE += file.rc
-    OTHER_FILES += file.rc
+    RC_FILE +=
+    OTHER_FILES +=
 }

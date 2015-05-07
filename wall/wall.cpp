@@ -27,7 +27,6 @@ wall::wall(QWidget *parent): QMainWindow(parent),autoIn("HKEY_CURRENT_USER\\Soft
     connect(themes, SIGNAL(triggered(QAction*)), this, SLOT(themeChange(QAction*)));
     connect(colors, SIGNAL(triggered(QAction*)), this, SLOT(themeChange(QAction*)));
     connect(timers, SIGNAL(triggered(QAction*)), this, SLOT(setTime(QAction*)));
-
 }
 bool wall::revivefromsleep(){
     QString str = settings.value("theme").toString();
@@ -92,7 +91,6 @@ void wall::saveSettings(QString str){
     if(str != "0"){
         settings.setValue("timer", str);
     }
-
 }
 
 void wall::about(){
@@ -101,7 +99,6 @@ void wall::about(){
 }
 wall::~wall()
 {
-    //delete ui;
 }
 
 void wall::on_changeButton_clicked(){
@@ -287,13 +284,11 @@ void wall::themeChoose(QString str){
     site = zastavki + theme;
 }
 void wall::randomTheme(){
-//    QList <QString> themeList = {"Природа", "Новый год", "Девушки", "Автомобили", "Кошки", "Зима"};
-//    srand(time(0));
-//    themeChoose(themeList.at(rand()%(themeList.count())));
+    QVector <QString> themeList = {"Природа", "Новый год", "Девушки", "Автомобили", "Кошки", "Зима"};
+    std::srand(time(0));
+    themeChoose(themeList.at(std::rand()%(themeList.count())));
 }
-
 void wall::themeChange(QAction *action){
-
     QString str = action->text();
     themeChoose(str);
     saveSettings("0");

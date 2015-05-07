@@ -64,8 +64,6 @@ private:
     QSystemTrayIcon *trayIcon;
     QTimer *timer;
 
-
-
 private slots:
     void randomTheme();
     void setTime(QAction*);
