@@ -49,7 +49,8 @@ private:
             url,    //link to wallpaper
             sec_site,
             now_theme,
-            now_color;
+            now_color,
+            now_version = "0.5";
     QImage img;
     QMenu *trayIconMenu,
           *themes,

@@ -11,10 +11,6 @@
 wall::wall(QWidget *parent): QMainWindow(parent),autoIn("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",QSettings::NativeFormat),
     settings("HKEY_CURRENT_USER\\Software\\Wallpee", QSettings::NativeFormat)
 {
-    //setupUi(this);
-    //setWindowIcon(QIcon(":/images/wallpee002.ico"));
-//    revivefromsleep();
-//    qDebug() << now_theme;
     if(!revivefromsleep()){
         deftheme();
     }
@@ -95,7 +91,7 @@ void wall::saveSettings(QString str){
 
 void wall::about(){
     QMessageBox::about(this, "О программе",
-                 "<b>Wallpee</b><br>Версия 1.0<br>Copyright &#169; 2015 ellozoid (<a href=\"ellozoid@gmail.com\">ellozoid@gmail.com</a>)<br>Все изображения принадлежат их владельцам.<br>");
+                 "<b>Wallpee</b><br>Версия " + now_version + "<br>Copyright &#169; 2015 ellozoid (<a href=\"ellozoid@gmail.com\">ellozoid@gmail.com</a>)<br>Все изображения принадлежат их владельцам.<br>");
 }
 wall::~wall()
 {
@@ -180,59 +176,59 @@ void wall::nowclear(){
     }
 }
 void wall::checkOffTheme(){
-    for(int i = 0; i < themes->actions().size(); i++){
-        if(themes->actions()[i]->isChecked())
-            themes->actions()[i]->setChecked(false);
-    }
+//    for(int i = 0; i < themes->actions().size(); i++){
+//        if(themes->actions()[i]->isChecked())
+//            themes->actions()[i]->setChecked(false);
+//    }
 }
 void wall::checkOffColor(){
-    for(int i = 0; i < colors->actions().size(); i++){
-        if(colors->actions()[i]->isChecked())
-            colors->actions()[i]->setChecked(false);
-    }
+//    for(int i = 0; i < colors->actions().size(); i++){
+//        if(colors->actions()[i]->isChecked())
+//            colors->actions()[i]->setChecked(false);
+//    }
 }
 void wall::themeChoose(QString str){
     srand( time( 0 ) );
 
     //Themes
     if(str == "Природа"){
-        checkOffTheme();
-        themes->actions()[0]->setChecked(true);
+        //checkOffTheme();
+        //themes->actions()[0]->setChecked(true);
         theme = "rus/Nature/" + QString::number(rand()%30 + 2) + '/';
         nowclear();
         now_theme = "Природа";
     }
     if(str == "Новый год"){
-        checkOffTheme();
-        themes->actions()[1]->setChecked(true);
+        //checkOffTheme();
+        //themes->actions()[1]->setChecked(true);
         theme = "rus/Holidays/New_Year_wallpapers/" + QString::number(rand()%30 + 2) + '/';
         nowclear();
         now_theme = "Новый год";
     }
     if(str == "Девушки"){
-        checkOffTheme();
-        themes->actions()[2]->setChecked(true);
+        //checkOffTheme();
+        //themes->actions()[2]->setChecked(true);
         theme = "rus/Girls/" + QString::number(rand()%30 + 2) + '/';
         nowclear();
         now_theme = "Девушки";
     }
     if(str == "Автомобили"){
-        checkOffTheme();
-        themes->actions()[3]->setChecked(true);
+        //checkOffTheme();
+        //themes->actions()[3]->setChecked(true);
         theme = "rus/Auto/" + QString::number(rand()%9 + 2) + '/';
         nowclear();
         now_theme = "Автомобили";
     }
     if(str == "Кошки"){
-        checkOffTheme();
-        themes->actions()[4]->setChecked(true);
+        //checkOffTheme();
+        //themes->actions()[4]->setChecked(true);
         theme = "rus/Animals/Cats/" + QString::number(rand()%30 + 2) + '/';
         nowclear();
         now_theme = "Кошки";
     }
     if(str == "Зима"){
-        checkOffTheme();
-        themes->actions()[5]->setChecked(true);
+        //checkOffTheme();
+        //themes->actions()[5]->setChecked(true);
         theme = "rus/Nature/Nature/Seasons/Winter/" + QString::number(rand()%30 + 2) + '/';
         nowclear();
         now_theme = "Зима";
@@ -240,43 +236,43 @@ void wall::themeChoose(QString str){
 
     //Colors
     if(str == "Красный"){
-        checkOffColor();
-        colors->actions()[0]->setChecked(true);
+        //checkOffColor();
+        //colors->actions()[0]->setChecked(true);
         nowclear();
         now_color = "Красный";
         theme = "?r=site%2Fcolors&service=colors&red=255&green=0&blue=0&orderby=date&page=" + QString::number(rand()%3 + 1) + '/';
     }
     if(str == "Золотой"){
-        checkOffColor();
-        colors->actions()[1]->setChecked(true);
+        //checkOffColor();
+        //colors->actions()[1]->setChecked(true);
         nowclear();
         now_color = "Золотой";
         theme = "?r=site%2Fcolors&service=colors&red=255&green=215&blue=0&orderby=date&page=" + QString::number(rand()%3 + 1) + '/';
     }
     if(str == "Тёмно-зелёный"){
-        checkOffColor();
-        colors->actions()[2]->setChecked(true);
+        //checkOffColor();
+        //colors->actions()[2]->setChecked(true);
         nowclear();
         now_color = "Тёмно-зелёный";
         theme = "?r=site%2Fcolors&service=colors&red=0&green=100&blue=0&orderby=date&page=" + QString::number(rand()%3 + 1) + '/';
     }
     if(str == "Зелёный"){
-        checkOffColor();
-        colors->actions()[3]->setChecked(true);
+        //checkOffColor();
+        //colors->actions()[3]->setChecked(true);
         nowclear();
         now_color = "Зелёный";
         theme = "?r=site%2Fcolors&service=colors&red=0&green=255&blue=0&orderby=date&page=" + QString::number(rand()%3 + 1) + '/';
     }
     if(str == "Синий"){
-        checkOffColor();
-        colors->actions()[4]->setChecked(true);
+        //checkOffColor();
+        //colors->actions()[4]->setChecked(true);
         nowclear();
         now_color = "Синий";
         theme = "?r=site%2Fcolors&service=colors&red=0&green=&blue=255&orderby=date&page=" + QString::number(rand()%3 + 1) + '/';
     }
     if(str == "Небесно-синий"){
-        checkOffColor();
-        colors->actions()[5]->setChecked(true);
+        //checkOffColor();
+        //colors->actions()[5]->setChecked(true);
         nowclear();
         now_color = "Небесно-синий";
         theme = "?r=site%2Fcolors&service=colors&red=191&green=&blue=255&orderby=date&page=" + QString::number(rand()%3 + 1) + '/';
@@ -285,8 +281,10 @@ void wall::themeChoose(QString str){
 }
 void wall::randomTheme(){
     QVector <QString> themeList = {"Природа", "Новый год", "Девушки", "Автомобили", "Кошки", "Зима"};
-    std::srand(time(0));
+    srand(time(0));
     themeChoose(themeList.at(std::rand()%(themeList.count())));
+    qDebug() << now_theme << ' ' << now_color;
+    on_changeButton_clicked();
 }
 void wall::themeChange(QAction *action){
     QString str = action->text();
@@ -329,7 +327,7 @@ void wall::doDownload()
 void wall::toReplyFinished(){
     img.save(screenPath);
     //SystemParametersInfoA
-    if(SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, (PVOID)screenPath.utf16(), SPIF_SENDWININICHANGE | SPIF_UPDATEINIFILE) == true){
+    if(SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, (PVOID)screenPath.utf16(), SPIF_SENDWININICHANGE | SPIF_UPDATEINIFILE)){
         qDebug() << "It\'s ok, wall is changed";
     }else{
         qDebug() << "It\'s bad, wall isnt changed";
